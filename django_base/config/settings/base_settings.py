@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'apps.foo.apps.FooConfig',
+    'apps.authentication.apps.AuthenticationConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -125,6 +126,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'authentication.Account'
 
 
 # Internationalization
