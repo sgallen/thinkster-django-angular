@@ -1,10 +1,13 @@
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    PermissionsMixin,
+)
 from django.db import models
 
 from ..managers import AccountManager
 
 
-class Account(AbstractBaseUser):
+class Account(PermissionsMixin, AbstractBaseUser):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=40, unique=True)
 
@@ -30,3 +33,7 @@ class Account(AbstractBaseUser):
 
     def get_short_name(self):
         return self.first_name
+
+    @property
+    def is_staff(self):
+        return self.is_admin
