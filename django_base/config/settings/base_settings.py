@@ -60,6 +60,7 @@ INSTALLED_APPS = [
 
     'apps.foo.apps.FooConfig',
     'apps.authentication.apps.AuthenticationConfig',
+    'apps.api_v1.apps.ApiV1Config',
 ]
 
 MIDDLEWARE_CLASSES = [
